@@ -14,8 +14,10 @@ export default function FAB({ label, onPress, onLongPress, position = 'right' }:
     return (
         <View>
             <Pressable
-                style={ [styles.floatingButton, 
-                    position === 'right' ? styles.positionRight : styles.positionLeft
+                style={ ( { pressed }) => [
+                    styles.floatingButton, 
+                    position === 'right' ? styles.positionRight : styles.positionLeft,
+                    pressed ? { opacity: 0.5} : { opacity : 1}
                 ] }
                 onPress={onPress}
                 onLongPress={onLongPress}
